@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrieren</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body class="container-fluid" style="text-align: center">
+<pre>
+
+
+
+
+</pre>
+
+<form role="form" th:action="@{/sign-up}" th:method="post" th:object="${user}">
+  <lable>Name</lable>
+  <input type="text" id="name" name="name" th:field="*{name}">
+  <p style="color:#C30005" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+
+  <lable>Vorname</lable>
+  <input type="text" id="surname" name="surname" th:field="*{surname}">
+  <p style="color:#C30005" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"/>
+
+  <lable>Email</lable>
+  <input type="text" id="email" name="email" th:field="*{email}">
+  <p style="color:#C30005" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
+
+  <lable>Passwort</lable>
+  <input type="password" id="password" name="password" th:field="*{password}">
+
+  <input type="submit">
+</form>
+
+<pre>
+
+
+</pre>
+<p>Schon ein Account vorhanden?</p>
+<form action="#" th:action="@{/sign-in}" th:method="get">
+  <input type="submit" value="Anmelden" style="display-inline">
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+</html>

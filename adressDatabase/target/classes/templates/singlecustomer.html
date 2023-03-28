@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Bearbeiten</title>
+</head>
+<body class="container-fluid">
+<h1>Adressdaten bearbeiten</h1>
+
+<form class="row" action="#" th:action="@{/customer/{id}/update(id=${customer.id})}" th:object="${customer}" method="post">
+    <div class="col">
+        <p>Name: <input type="text" th:field="*{name}"></p>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+
+        <p>Vorname: <input type="text" th:field="*{surName}"></p>
+        <p th:if="${#fields.hasErrors('surName')}" th:errors="*{surName}"/>
+    </div>
+    <div class="col">
+        <p>Straße: <input type="text" th:field="*{street}"></p>
+        <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}"/>
+
+        <p>Hausnummer: <input type="number" th:field="*{houseNumber}"></p>
+        <p th:if="${#fields.hasErrors('houseNumber')}" th:errors="*{houseNumber}"/>
+    </div>
+    <div class="col">
+        <p>Postleitzahl: <input type="text" th:field="*{postCode}"></p>
+        <p th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"/>
+
+        <p>Stadt: <input type="text" th:field="*{city}"></p>
+        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"/>
+    </div>
+    <div class="col">
+        <p>Land: <input type="text" th:field="*{land}"></p>
+        <p th:if="${#fields.hasErrors('land')}" th:errors="*{land}"/>
+
+        <p>Telefon: <input type="text" th:field="*{telephone}"></p>
+        <p th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"/>
+    </div>
+    <div class="col">
+        <p>E-Mail Adresse: <input type="text" th:field="*{eMail}"></p>
+        <p th:if="${#fields.hasErrors('eMail')}" th:errors="*{eMail}"/>
+
+        <input type="submit" value="Speichern">
+    </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+</html>

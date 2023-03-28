@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: CustomerDatabase-production
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: CustomerDatabase
+      role: frontend
+      env: production
+  template:
+    metadata:
+      name: frontend
+      labels:
+        app: CustomerDatabase
+        role: frontend
+        env: production
+    spec:
+      containers:
+        - name: frontend
+          image: eu.gcr.io/hg-s0001-ps-play-npr-cac4/CustomerDatabase:1.0.0
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "500Mi"
+              cpu: "100m"
+          ports:
+            - name: frontend
+              containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
